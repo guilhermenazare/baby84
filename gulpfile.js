@@ -15,7 +15,6 @@ var gulp = require("gulp"),
 
 var dirs = {
     //src
-    
     Html:['./app/**/*.html','.app/libs'],
     Css: ['./app/**/*.scss','!.app/lib'],
     Js: ['./app/assets/js/*.js','!.app/lib'],
