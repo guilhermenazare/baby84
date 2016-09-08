@@ -1,0 +1,26 @@
+{
+  "name": "cvtiagoos",
+  "version": "1.0.0",
+  "title": "TiagoOS Front-end",
+  "description": "Frontend developer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiagoos/baby84.git"
+  },
+  "author": "Tiago OS",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "latest",
+    "browser-sync": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-imagemin": "latest",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "latest",
+    "gulp-uglify": "^2.0.0",
+    "imagemin-pngquant": "latest",
+    "lodash": "latest"
+  }
+}
