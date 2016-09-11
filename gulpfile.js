@@ -8,43 +8,45 @@ var gulp = require("gulp"),
     concatCss = require('gulp-concat-css'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
-    gulp = require('gulp');
-    autoprefixer = require('gulp-autoprefixer');
-
+    gulp = require('gulp'),
+    autoprefixer = require('gulp-autoprefixer'),
+    bower = require('gulp-bower');
+ 
 //Diretorios
 
 var dirs = {
     //src
-    Html:['./app/**/*.html','.app/libs'],
-    Css: ['./app/**/*.scss','!.app/lib'],
-    Js: ['./app/assets/js/*.js','!.app/lib'],
+    Html:'./app/**/*.html',
+    Css: './app/**/*.scss',
+    Js: './app/**/*.js',
     Img:'./app/assets/img/*',
-    Libs:'./app/libs/**/*',
-    Components:['./app/components/**/*.*'],
+    Libs:'./app/libs/',
     Download:'./app/download/**/*',
     
     //dest
     build:{
         Html:'./build/app/',
         Css:'./build/app/',
-        Js: './build/app/assets/js/',
+        Js: './build/app/',
         Img:'./build/app/assets/img',
         Libs:'./build/app/libs/',
-        Components:'./build/app/components/',
         Download:'./build/app/download/'
     }
 };
 
 // Tasks
+
 gulp.task('teste',function(){
-    console.log("teste");
+    // gulp.src(['app/**/*.scss','!app/libs/**/*.scss'],function (er, files) {
+    //     console.log('Arquivos:',files);
+    // });
 });
 
 gulp.task('sass', function(){
     gulp.src(dirs.Css)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['> 1%', 'ie 9'],
             cascade: false
         }))
     .pipe(gulp.dest(dirs.build.Css));
@@ -70,10 +72,10 @@ gulp.task('download',function(){
     .pipe(gulp.dest(dirs.build.Download));
 });
 
-gulp.task('components',function(){
-    gulp.src(dirs.Components,{base: './app/components'})
-    .pipe(gulp.dest(dirs.build.Components));
-});
+// gulp.task('components',function(){
+//     gulp.src(dirs.Components,{base: './app/components'})
+//     .pipe(gulp.dest(dirs.build.Components));
+// });
 
 gulp.task('img',function(){
     gulp.src(dirs.Img)
@@ -86,20 +88,18 @@ gulp.task('img',function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch([dirs.Css,dirs.Js,dirs.Html,dirs.Components], ['sass','js','html','libs','components']).on('change', function(event) {
+    gulp.watch([dirs.Css,dirs.Js,dirs.Html], ['sass','js','html','libs']).on('change', function(event) {
       console.log('\r\r >>> O arquivo ' + '\x1b[33m%s\x1b[0m',event.path + '\x1b[37m\x1b[0m'+' foi modificado.\r >>> Reexecutando as Tarefas, aguarde...\r\r');
       bs.reload();
     });
 });
 
-gulp.task('serve',['html','libs','sass','js','components','img','watch','download'], function() {
+gulp.task('serve',['html','libs','sass','js','img','watch','download'], function() {
     bs.init({
         port: 8081,        
         server: {
             baseDir: dirs.build.Html,
         }
     });
+    return bower({ cmd: 'install'});
 });
-
-
-

@@ -1,8 +1,8 @@
 {
   "name": "cvtiagoos",
   "version": "1.0.0",
-  "title": "TiagoOS Front-end",
-  "description": "Frontend developer",
+  "title": "Baby Front-end Startkit",
+  "description": "Startkit Frontend",
   "repository": {
     "type": "git",
     "url": "https://github.com/tiagoos/baby84.git"
@@ -14,6 +14,7 @@
     "browser-sync": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-bower": "0.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.3.0",
     "gulp-imagemin": "latest",

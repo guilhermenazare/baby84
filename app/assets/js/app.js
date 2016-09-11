@@ -19,7 +19,7 @@ var app = angular.module('app', ['ui.router','oc.lazyLoad'])
                         },
                         resolve: {
                             modules: ['$ocLazyLoad', function($ocLazyLoad) {
-                                return $ocLazyLoad.load(['home/homeController.js','components/navbar/navbar.js']);
+                                return $ocLazyLoad.load(['home/homeController.js','components/navbar/navbar.js','components/navbar/navbar.css']);
                             }]
                         }
                     })

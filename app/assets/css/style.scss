@@ -1,10 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 @import url(https://fonts.googleapis.com/css?family=Kanit:300,400,500,700,900);
 
-/*Primary colors*/
-$color-a:#0ba5d7;
-/*End primary colors*/
-
 html,
 body {
 	height: 100%;
@@ -17,6 +13,11 @@ body {
 		box-sizing: inherit;
 	}
 }
+
+/*Primary colors*/
+$color-a:#0ba5d7;
+$color-b:#000;
+/*End primary colors*/
 
 body {
 	//background-image: linear-gradient(to top,$bg-color,lighten(adjust-hue($bg-color,-40%),20%));
